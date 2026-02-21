@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/base.js"></script>
+  <meta name="theme-color" content="#000000">
+
+  <title>Зміна</title>
+
+  <link rel="stylesheet" href="css/base.css?v=2">
+  <link rel="stylesheet" href="css/theme.css?v=2">
+  <link rel="stylesheet" href="css/components.css?v=2">
+</head>
+<body class="dark">
+
+<form id="dataForm">
+  <div class="form-wrapper">
+    <div class="form-container">
+      <div class="page-header">
+        <span class="page-header__spacer" aria-hidden="true"></span>
+        <h2>Зміна</h2>
+        <button type="button" class="theme-btn theme-toggle" id="themeBtn" aria-label="Theme">🌙</button>
+      </div>
+      <h3>Вступ</h3>
+      <textarea name="introduction"></textarea>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleDate">
+        <span class="checkbox-label">Дата</span>
+      </h3>
+      <div id="sectionDate" class="section-content">
+        <div class="date-mode-row" role="group" aria-label="Режим дати">
+          <label class="date-mode-option">
+            <input type="radio" name="dateMode" value="single" id="dateModeSingle" checked>
+            <span>Одна дата</span>
+          </label>
+          <label class="date-mode-option">
+            <input type="radio" name="dateMode" value="range" id="dateModeRange">
+            <span>Діапазон</span>
+          </label>
+        </div>
+        <div id="dateSingleWrap" class="date-input-wrap">
+          <input type="date" name="date" id="date">
+        </div>
+        <div id="dateRangeWrap" class="date-range-wrap" hidden>
+          <div class="date-range-fields">
+            <label class="date-range-field">
+              <span class="date-range-field-label">Від</span>
+              <input type="date" id="dateFrom" autocomplete="off">
+            </label>
+            <label class="date-range-field">
+              <span class="date-range-field-label">До</span>
+              <input type="date" id="dateTo" autocomplete="off">
+            </label>
+          </div>
+          <p class="date-range-only-hint">Розклад по кожному дню діапазону — у блоці «Імпорт таблиці» нижче (після списку людей).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleImport">
+        <span class="checkbox-label">Імпорт таблиці</span>
+      </h3>
+      <div id="sectionImport" class="section-content">
+        <p class="file-import-hint">1-й стовпчик — ПІБ, 2-й — телефон</p>
+        <label class="file-import-label">
+          <span class="file-import-text" id="fileImportLabel">Обрати файл (CSV або Excel)</span>
+          <input type="file" id="fileImport" accept=".csv,.xlsx,.xls" class="file-import-input">
+        </label>
+        <div id="peopleListEditor" class="people-list-editor" aria-live="polite"></div>
+        <div id="importError" class="people-import-error" aria-live="polite"></div>
+        <div class="people-add-form">
+          <input type="text" id="addPersonName" placeholder="ПІБ" class="people-add-input">
+          <input type="text" id="addPersonPhone" placeholder="Телефон" class="people-add-input">
+          <button type="button" id="addPersonBtn" class="people-add-btn">Додати</button>
+        </div>
+        <div id="rangeScheduleBlock" class="range-schedule-block" hidden>
+          <h4 class="range-schedule-block-title">Діапазон дат — хто на зміні</h4>
+          <p class="range-schedule-hint">Кожен день діапазону з блоку «Дата». Позначте людей зі списку вище (таблиця або «Додати»).</p>
+          <div id="weekScheduleEditor" class="week-schedule-editor" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleRest">
+        <span class="checkbox-label">На відпочинок</span>
+      </h3>
+      <div id="sectionRest" class="section-content">
+        <div id="peopleRest" class="people-checkbox-list" role="group" aria-label="На відпочинок"></div>
+        <button type="button" class="multiselect-clear" id="clearRestBtn">Зняти всі</button>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleArrived">
+        <span class="checkbox-label">Прибули</span>
+      </h3>
+      <div id="sectionArrived" class="section-content">
+        <div id="peopleArrived" class="people-checkbox-list" role="group" aria-label="Прибули"></div>
+        <button type="button" class="multiselect-clear" id="clearArrivedBtn">Зняти всі</button>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleWeapon">
+        <span class="checkbox-label">Зброя та б/к</span>
+      </h3>
+      <div id="sectionWeapon" class="section-content">
+        <input type="text" name="weapon" id="weapon" value="без змін">
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h3>
+        <input type="checkbox" id="toggleNote">
+        <span class="checkbox-label">Допис</span>
+      </h3>
+      <div id="sectionNote" class="section-content">
+        <textarea name="note" id="note" rows="3"></textarea>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <button type="button" id="resultBtn">Результат</button>
+      <button type="button" id="shareBtn">Вiдправити</button>
+      <button type="button" class="secondary" id="copyBtn">Скопiювати</button>
+    </div>
+  </div>
+</form>
+
+<div id="previewModal" class="preview-modal" aria-hidden="true">
+  <div class="preview-modal-box">
+    <h3 class="preview-modal-title">Результат</h3>
+    <div class="preview-modal-content" id="previewModalContent"></div>
+    <div class="preview-modal-images" id="previewModalImages"></div>
+    <button type="button" class="preview-modal-close" id="previewModalClose">Закрити</button>
+  </div>
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+<script src="js/theme.js?v=2"></script>
+<script src="js/form.js?v=5"></script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+body.dark {
+  background: #111;
+  color: white;
+  color-scheme: dark;
+}
+
+body.dark .form-container {
+  background: #1e1e1e;
+}
+
+body.dark h3 {
+  color: #aaa;
+}
+
+body.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+body.dark textarea,
+body.dark select {
+  background: #2a2a2a;
+  border-color: #333;
+  color: white;
+}
+
+body.dark .people-checkbox-list {
+  background: #2a2a2a;
+  border-color: #333;
+  color: #eee;
+}
+
+body.dark .people-checkbox-item:not(:last-child) {
+  border-bottom-color: #444;
+}
+
+body.dark .people-checkbox-empty {
+  color: #999;
+}
+
+body.dark .preview-modal-box {
+  background: #1e1e1e;
+  color: white;
+}
+
+body.dark .preview-modal-title {
+  color: #eee;
+}
+
+body.dark .preview-modal-content {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+body.dark .preview-modal-images {
+  border-top-color: #444;
+}
+
+body.dark .file-import-text {
+  background: #2a2a2a;
+  border-color: #333;
+  color: white;
+}
+
+body.dark .file-import-label:hover .file-import-text {
+  background: #333;
+}
+
+body.dark .people-list-editor {
+  color: #999;
+}
+
+body.dark .people-list-editor-empty {
+  color: #999;
+}
+
+body.dark .people-list-editor-remove {
+  background: #c44;
+  color: white;
+}
+
+body.dark .people-list-editor-remove:hover {
+  background: #a33;
+}
+
+body.dark .people-import-error {
+  color: #f66;
+}
+
+body.dark .file-import-hint {
+  color: #999;
+}
+
+body.dark .week-schedule-day {
+  background: #2a2a2a;
+  border-color: #333;
+  color: #eee;
+}
+
+body.dark .week-schedule-day-title {
+  color: #eee;
+}
+
+body.dark .week-schedule-hint,
+body.dark .date-range-field-label {
+  color: #999;
+}
+
+body.dark .date-range-only-hint,
+body.dark .range-schedule-hint {
+  color: #999;
+}
+
+body.dark .range-schedule-block {
+  border-top-color: #444;
+}
+
+body.dark .range-schedule-block-title {
+  color: #eee;
+}
