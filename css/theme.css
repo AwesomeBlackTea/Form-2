@@ -1,3 +1,65 @@
+/* Light mode: explicit surfaces, borders, and text so cards read as panels, not blank white */
+body:not(.dark) {
+  color-scheme: light;
+  color: #1a1a1a;
+  background: #e6e9ef;
+}
+
+body:not(.dark) .form-container {
+  background: #fff;
+  border: 1px solid #c8ced8;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.06),
+    0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+body:not(.dark) h2 {
+  color: #111827;
+}
+
+body:not(.dark) h3 {
+  color: #4b5563;
+}
+
+body:not(.dark) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+body:not(.dark) textarea,
+body:not(.dark) select {
+  background: #fff;
+  border-color: #b8c0cc;
+  color: #1a1a1a;
+}
+
+body:not(.dark) .people-checkbox-list,
+body:not(.dark) .week-schedule-day {
+  background: #fff;
+  border-color: #b8c0cc;
+}
+
+body:not(.dark) .people-checkbox-item:not(:last-child) {
+  border-bottom-color: #e5e7eb;
+}
+
+body:not(.dark) .file-import-text {
+  background: #fff;
+  border-color: #b8c0cc;
+  color: #1a1a1a;
+}
+
+body:not(.dark) .file-import-label:hover .file-import-text {
+  background: #f3f4f6;
+}
+
+body:not(.dark) .theme-btn {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #b8c0cc;
+}
+
+body:not(.dark) .theme-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
 body.dark {
   background: #111;
   color: white;
