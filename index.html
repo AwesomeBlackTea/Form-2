@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="css/base.css?v=2">
   <link rel="stylesheet" href="css/theme.css?v=3">
-  <link rel="stylesheet" href="css/components.css?v=3">
+  <link rel="stylesheet" href="css/components.css?v=4">
 </head>
 <body class="dark">
 
@@ -46,11 +46,15 @@
           <input type="date" name="date" id="date">
         </div>
         <div id="dateRangeWrap" class="date-range-wrap" hidden>
-          <div class="date-range-fields">
-            <span class="date-range-field-label">Від</span>
-            <span class="date-range-field-label">До</span>
-            <input type="date" id="dateFrom" autocomplete="off" aria-label="Дата від">
-            <input type="date" id="dateTo" autocomplete="off" aria-label="Дата до">
+          <div class="people-add-form date-range-form">
+            <div class="date-range-field-stack">
+              <span class="date-range-field-label">Від</span>
+              <input type="date" id="dateFrom" class="people-add-input" autocomplete="off" aria-label="Дата від">
+            </div>
+            <div class="date-range-field-stack">
+              <span class="date-range-field-label">До</span>
+              <input type="date" id="dateTo" class="people-add-input" autocomplete="off" aria-label="Дата до">
+            </div>
           </div>
           <p class="date-range-only-hint">Розклад по кожному дню діапазону — у блоці «Імпорт таблиці» нижче (після списку людей).</p>
         </div>
