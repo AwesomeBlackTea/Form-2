@@ -107,7 +107,8 @@ function initForm() {
   function formatWeekdayScheduleBlock(label, people) {
     if (!people.length) return "";
     const lines = [];
-    lines.push(`${label}  ${people[0].name.trim()}`);
+    lines.push(label);
+    lines.push(people[0].name.trim());
     if ((people[0].phone || "").trim()) lines.push(people[0].phone.trim());
     for (let i = 1; i < people.length; i++) {
       lines.push(people[i].name.trim());
@@ -519,7 +520,7 @@ function initForm() {
       const start = from <= to ? from : to;
       const end = from <= to ? to : from;
       const rangeLine = formatRangeHeader(start, end);
-      report += (report ? "\n" : "") + rangeLine;
+      report += (report ? "\n\n" : "") + rangeLine;
       const dates = orderedDatesInRange(start, end);
       const blocks = [];
       dates.forEach(iso => {
