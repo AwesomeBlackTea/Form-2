@@ -537,7 +537,7 @@ function initForm() {
       return report;
     }
     const single = (formData.date || "").trim();
-    if (single) report += (report ? "\n" : "") + formatDDMMYYYY(single);
+    if (single) report += (report ? "\n\n" : "") + formatDDMMYYYY(single);
     return report;
   }
 
@@ -545,16 +545,17 @@ function initForm() {
     syncScheduleByDateFromDom();
     const formData = Object.fromEntries(new FormData(dataForm).entries());
     let report = (formData.introduction || "").trim();
+    const soloSpacing = !isRangeMode() ? "\n\n" : "\n";
     report = appendDateToReport(report, formData);
     if (toggleRest.checked) {
       const restText = getSelectedPeopleText(peopleRest);
-      if (restText) report += (report ? "\n" : "") + "На відпочинок:\n" + restText;
+      if (restText) report += (report ? soloSpacing : "") + "На відпочинок:\n" + restText;
     }
     if (toggleArrived.checked) {
       const arrivedText = getSelectedPeopleText(peopleArrived);
-      if (arrivedText) report += (report ? "\n" : "") + "Прибули:\n" + arrivedText;
+      if (arrivedText) report += (report ? soloSpacing : "") + "Прибули:\n" + arrivedText;
     }
-    if (toggleWeapon.checked) report += (report ? "\n" : "") + "Зброя та б/к - " + (formData.weapon && formData.weapon.trim() ? formData.weapon.trim() : "без змін");
+    if (toggleWeapon.checked) report += (report ? soloSpacing : "") + "Зброя та б/к - " + (formData.weapon && formData.weapon.trim() ? formData.weapon.trim() : "без змін");
     if (toggleNote.checked && formData.note) report += (report ? "\n" : "") + formData.note.trim();
     return report;
   }
