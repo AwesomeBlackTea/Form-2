@@ -2,7 +2,7 @@
 body:not(.dark) {
   color-scheme: light;
   color: #1a1a1a;
-  background: #e6e9ef;
+  background: #f0f4fa;
 }
 
 body:not(.dark) .form-container {
